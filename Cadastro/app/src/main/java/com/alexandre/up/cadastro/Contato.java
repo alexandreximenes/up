@@ -50,7 +50,7 @@ public class Contato {
         return this;
     }
 
-    public void adiciona(Contato contato){
+    public void salva(Contato contato){
         contatos.add(contato);
     }
 

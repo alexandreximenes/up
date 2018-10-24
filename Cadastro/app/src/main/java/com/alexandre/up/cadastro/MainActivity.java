@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     private EditText edNome, edIdade, edEmail;
@@ -36,12 +39,21 @@ public class MainActivity extends AppCompatActivity {
                         .setNome(edNome.getText().toString())
                         .setIdade(edIdade.getText().toString())
                         .setEmail(edEmail.getText().toString());
+                    contato.salva(contato);
 
                     msg("Salvo com sucesso!");
+                    limparCampos();
                     enviarParaActivityDetalheContato(contato.getNome(), contato.getIdade(), contato.getEmail());
                 }
             }
         });
+    }
+
+    private void limparCampos() {
+        edNome.setText("");
+        edIdade.setText("");
+        edEmail.setText("");
+        edNome.requestFocus();
     }
 
     private void enviarParaActivityDetalheContato(String nome, int idade, String email) {
