@@ -3,8 +3,13 @@ package br.edu.up.calculadora_v1_1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +22,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.activity_main);
+
 
         txtVisor = findViewById(R.id.txtVisor);
         digitando = false;
@@ -77,7 +86,14 @@ public class MainActivity extends AppCompatActivity {
 
             }else {
 
-                String valorConvertido = txtVisor.getText().toString().replace(',', '.');
+//                String valorConvertido = txtVisor.getText().toString().replace(',', '.').replace(".", "");
+                String valorConvertido = null;
+                NumberFormat nFormat = NumberFormat.getNumberInstance();
+                try {
+                    valorConvertido = String.valueOf(nFormat.parse(txtVisor.getText().toString()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
                 calc.setValor(Float.parseFloat(valorConvertido));
                 calc.verificarOperacao(op);
@@ -89,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 txtVisor.setText(textoResultado.replace('.', ','));
+                if(op.equals("=")) txtVisor.setText(nFormat.format(Double.parseDouble(textoResultado)));
                 digitando = false;
                 separadorDecimal = false;
             }
