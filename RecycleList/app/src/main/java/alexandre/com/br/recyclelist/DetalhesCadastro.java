@@ -36,7 +36,7 @@ public class DetalhesCadastro extends AppCompatActivity {
         tvFone.setText(fone);
         tvEmail.setText(email);
         tvEndereco.setText(endereco);
-
+        //
         btDeletar = findViewById(R.id.btDetalheDeletar);
         btDeletar.setOnClickListener(new View.OnClickListener() {
             @Override
