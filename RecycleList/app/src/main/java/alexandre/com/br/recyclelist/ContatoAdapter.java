@@ -46,14 +46,16 @@ public class ContatoAdapter extends RecyclerView.Adapter {
             public void onClick(View v) {
                 Toast.makeText(context, "Contato: " + position, Toast.LENGTH_SHORT).show();
 
-                Contato c = ContatoLista.getContato(position);
+                Contato c = ContatoLista.get(position);
 
                 Bundle bundle = new Bundle();
+                if(position>=0){
+                    bundle.putInt("index", position);
+                }
                 bundle.putString("nome", c.getNome());
                 bundle.putString("fone", c.getFone());
                 bundle.putString("email", c.getEmail());
                 bundle.putString("endereco", c.getEndereco());
-
                 Intent i = new Intent(context, DetalhesCadastro.class);
                 i.putExtras(bundle);
                 context.startActivity(i);

@@ -1,25 +1,34 @@
 package alexandre.com.br.recyclelist;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class ContatoLista {
 
     private static ArrayList<Contato> listaContatos = new ArrayList<>();
 
-    public static void addContato(Contato c){
+    public static void add(Contato c){
         listaContatos.add(c);
     }
 
-    public static Contato getContato(int index){
+    public static Contato remove(int index){
+        return listaContatos.remove(index);
+    }
+
+    public static Contato remove(String nome){
+        int index = listaContatos.indexOf(nome);
+        if(index>0){
+            return listaContatos.remove(index);
+        }
+        return null;
+    }
+    public static Contato get(int index){
         return listaContatos.get(index);
     }
-    public static ArrayList<Contato> getListaContatos() {
+    public static ArrayList<Contato> all() {
         return listaContatos;
     }
 
-    public static void gerarLista(){
+    public static void generateList(){
         listaContatos.add(new Contato("Alexandre", "41 99999", "xyymenes@gmail.com", "Rua A"));
         listaContatos.add(new Contato("Amanda", "41 8888", "Amanda@gmail.com", "Rua B"));
         listaContatos.add(new Contato("Roberto", "41 77777", "Roberto@gmail.com", "Rua C"));
