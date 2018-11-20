@@ -81,7 +81,6 @@ public class CadastrarActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 nome = edtNome.getText().toString();
                 professor = edtProfessor.getText().toString();
                 turno = edtTurno.getText().toString();
@@ -89,6 +88,17 @@ public class CadastrarActivity extends AppCompatActivity {
 
                 if (atualizar) {
 
+                    Disciplina edt = new Disciplina(id, nome, professor, turno, dias);
+                    try{
+                        DisciplinaDAO dao = new DisciplinaDAO(getApplicationContext());
+                        if( dao.atualizarDisciplina(edt) ){
+                            msg("Disciplina atualizada com sucesso!");
+                        }else{
+                            msg("Não foi possivel atualizar disciplina");
+                        }
+                    }catch (Exception e){
+                        msg(e.getMessage());
+                    }
 
                 } else {
 

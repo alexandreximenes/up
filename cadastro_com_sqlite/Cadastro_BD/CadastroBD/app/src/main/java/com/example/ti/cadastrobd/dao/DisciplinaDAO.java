@@ -3,7 +3,6 @@ package com.example.ti.cadastrobd.dao;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 
 import com.example.ti.cadastrobd.Disciplina;
 import com.example.ti.cadastrobd.ListaDisciplinas;
@@ -21,20 +20,8 @@ public class DisciplinaDAO {
     }
 
     public boolean cadastrarDisciplina(Disciplina disciplina) {
-        ContentValues values = new ContentValues();
-        long result;
 
-        values.put(helper.NOME, disciplina.getNome());
-        values.put(helper.PROFESSOR, disciplina.getProfessor());
-        values.put(helper.TURNO, disciplina.getTurno());
-        values.put(helper.DIAS, disciplina.getDias());
-
-        result = gateway.getDataBase().insert(helper.TABLE, null, values);
-
-        if (result > 0) {
-            return true;
-        }
-        return false;
+        return gateway.getDataBase().insert(helper.TABLE, null, putValues(disciplina)) > 0 ? true : false;
     }
 
     public void getDisciplinas() {
@@ -44,7 +31,6 @@ public class DisciplinaDAO {
             cursor.moveToFirst();
 
             while (cursor != null) {
-
                 int id              = cursor.getInt(cursor.getColumnIndex(helper.ID));
                 String nome         = cursor.getString(cursor.getColumnIndex(helper.NOME));
                 String professor    = cursor.getString(cursor.getColumnIndex(helper.PROFESSOR));
@@ -59,4 +45,33 @@ public class DisciplinaDAO {
             e.printStackTrace();
         }
     }
+
+    public boolean excluirDisciplina(int identifier){
+        String where = helper.ID + " = ?";
+        String [] id = {String.valueOf(identifier)};
+        return gateway.getDataBase().delete(helper.TABLE, where,  id) > 0 ? true : false;
+    }
+
+    public boolean atualizarDisciplina(Disciplina disciplina){
+        if(disciplina != null){
+            String where = helper.ID + " = ?";
+            String [] id = {String.valueOf( disciplina.getId() )};
+            return gateway.getDataBase().update(helper.TABLE, putValues(disciplina), where,  id) > 0 ? true : false;
+        }
+        return false;
+    }
+
+    private ContentValues putValues(Disciplina disciplina) {
+        ContentValues values = new ContentValues();
+
+        values.put(helper.NOME, disciplina.getNome());
+        values.put(helper.PROFESSOR, disciplina.getProfessor());
+        values.put(helper.DIAS, disciplina.getDias());
+        values.put(helper.TURNO, disciplina.getTurno());
+
+        return values;
+    }
+
+
+
 }
