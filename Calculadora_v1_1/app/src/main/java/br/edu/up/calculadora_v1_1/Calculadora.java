@@ -1,9 +1,7 @@
 package br.edu.up.calculadora_v1_1;
 
-import android.util.Log;
-
 /**
- * Created by Sobreiro on 16/10/2018.
+ * Created by Alexandre Ximenes on 31/10/2018.
  */
 
 public class Calculadora {
@@ -29,7 +27,6 @@ public class Calculadora {
     }
 
     private void realizarOperacao() {
-        Log.i("OP: ",this.op);
         if (!operador.equals("")) {
             if (operador.equals("+")) {
                 valor = valorAnterior + valor;
