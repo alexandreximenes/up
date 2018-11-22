@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ti.cadastrobd.DetalhesActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="DETALHES DO FILME"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/textView"
+        android:layout_below="@+id/textView"
+        android:layout_marginTop="30dp"
+        android:text="ID: #"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtID"
+        android:layout_below="@+id/txtID"
+        android:layout_marginTop="21dp"
+        android:text="Nome: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtAno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtNome"
+        android:layout_below="@+id/txtNome"
+        android:layout_marginTop="28dp"
+        android:text="Ano: "
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtMidia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtAno"
+        android:layout_below="@+id/txtAno"
+        android:layout_marginTop="28dp"
+        android:text="Midia: "
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/btnExcluir"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/txtMidia"
+        android:layout_below="@+id/txtMidia"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:text="Excluir" />
+
+    <Button
+        android:id="@+id/btnAlterar"
+        android:layout_width="115dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_alignTop="@+id/btnExcluir"
+        android:backgroundTint="@android:color/holo_orange_light"
+        android:text="Alterar" />
+
+</RelativeLayout>

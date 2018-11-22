@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="Cadastro de Contatos" />
+
+    <EditText
+        android:id="@+id/edNome"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="141dp"
+        android:ems="10"
+        android:hint="Informe o nome"
+        android:inputType="textPersonName"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="38dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/edNome"
+        android:layout_marginTop="112dp"
+        android:text="Nome:"
+        android:layout_alignLeft="@+id/edNome" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/edNome"
+        android:layout_marginTop="216dp"
+        android:text="Idade:"
+        android:layout_alignLeft="@+id/edNome" />
+
+    <EditText
+        android:id="@+id/edIdade"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/edNome"
+        android:layout_marginTop="245dp"
+        android:ems="10"
+        android:hint="Informe sua idade"
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/edNome" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="240dp"
+        android:layout_marginStart="31dp"
+        android:text="E-mail:"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="31dp" />
+
+    <EditText
+        android:id="@+id/edEmail"
+        android:layout_width="298dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/edNome"
+        android:layout_marginBottom="182dp"
+        android:ems="10"
+        android:hint="Informe seu e-mail"
+        android:inputType="textPersonName"
+        android:layout_alignLeft="@+id/edNome" />
+
+    <Button
+        android:id="@+id/btCadastrar"
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="92dp"
+        android:background="@color/colorPrimary"
+        android:text="Salvar" />
+
+</RelativeLayout>
