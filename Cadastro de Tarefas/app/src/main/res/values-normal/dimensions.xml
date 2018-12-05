@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="tamanho_titulo">18sp</dimen>
+    <dimen name="tamanho_texto">14sp</dimen>
+    <dimen name="tamanho_texto_botao">16sp</dimen>
+    <!--<dimen name="activity_horizontal_margin"></dimen>-->
+</resources>
