@@ -14,6 +14,14 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tvMsg"
+            android:paddingBottom="20dp"
+            android:layout_width="match_parent"
+            android:text=""
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/holo_red_dark" />
+
+        <TextView
             android:id="@+id/tvLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
