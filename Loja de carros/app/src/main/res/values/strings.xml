@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Loja de veiculos</string>
+    <string name="title_activity_cadastrar_usuario">CadastrarUsuário</string>
+</resources>
