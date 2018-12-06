@@ -38,9 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         ContatoDAO dao = new ContatoDAO(MainActivity.this);
 
-        List<Contato> contatoes = dao.lista();
+        List<Contato> contatos = dao.lista();
 
-        ContatoAdapter adapter = new ContatoAdapter(contatoes, MainActivity.this);
+        ContatoAdapter adapter = new ContatoAdapter(contatos, MainActivity.this);
 
         RecyclerView.LayoutManager layout = new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false);
 

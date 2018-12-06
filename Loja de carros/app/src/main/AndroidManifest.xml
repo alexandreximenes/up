@@ -12,7 +12,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".CadastrarActivity" />
         <activity android:name=".DetalhesActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".Usuario.LoginActivity" />
         <activity android:name=".TelaInicial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,8 +21,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CadastrarUsuario"
-            android:label="@string/title_activity_cadastrar_usuario"></activity>
+            android:name=".Usuario.CadastrarUsuario"
+            android:label="@string/title_activity_cadastrar_usuario" />
+        <activity
+            android:name=".Empresa.CadastroLojaActivity"
+            android:label="@string/title_activity_cadastro_loja" />
+        <activity
+            android:name=".Empresa.DetalheLojaActivity"
+            android:label="@string/title_activity_detalhe_loja" />
+        <activity android:name=".ListaUsuariosActivity" />
+        <activity
+            android:name=".DetalhesUsuarioActivity"
+            android:label="@string/title_activity_detalhes_usuario"></activity>
     </application>
 
 </manifest>

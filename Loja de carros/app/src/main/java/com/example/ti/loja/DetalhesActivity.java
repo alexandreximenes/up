@@ -51,7 +51,7 @@ public class DetalhesActivity extends AppCompatActivity {
             ContatoDAO dao = new ContatoDAO(getApplicationContext());
             contato = dao.get(id);
 
-            txtID.setText("ID: #" + contato.getId());
+            txtID.setText("ID_CONTATO: #" + contato.getId());
             txtNome.setText("Nome: " + contato.getNome());
             txtTipo.setText("Tipo: " + contato.getTipo());
             txtEmail.setText("Email: " + contato.getEmail());

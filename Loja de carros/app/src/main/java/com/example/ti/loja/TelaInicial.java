@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.ti.loja.Usuario.LoginActivity;
+
 public class TelaInicial extends Activity {
 
     public static final int TRES_SEGUNDOS = 3000;
