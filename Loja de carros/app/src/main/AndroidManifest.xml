@@ -31,7 +31,7 @@
             android:label="@string/title_activity_detalhe_loja" />
         <activity android:name=".ListaUsuariosActivity" />
         <activity
-            android:name=".DetalhesUsuarioActivity"
+            android:name=".Usuario.DetalhesUsuarioActivity"
             android:label="@string/title_activity_detalhes_usuario"></activity>
     </application>
 

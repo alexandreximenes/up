@@ -1,4 +1,4 @@
-package com.example.ti.loja;
+package com.example.ti.loja.Usuario;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ti.loja.Usuario.CadastrarUsuario;
-import com.example.ti.loja.Usuario.Usuario;
+import com.example.ti.loja.ListaUsuariosActivity;
+import com.example.ti.loja.Mensagem;
+import com.example.ti.loja.R;
+import com.example.ti.loja.Util.FakeSenha;
 import com.example.ti.loja.dao.UsuarioDAO;
 
 public class DetalhesUsuarioActivity extends Activity {
@@ -58,7 +60,7 @@ public class DetalhesUsuarioActivity extends Activity {
 //            fotoUsuario...
             txtNomeUsuario.setText("NOME: " + usuario.getNome());
             txtEmailUsuario.setText("EMAIL: " + usuario.getEmail());
-            txtSenhaUsuario.setText("SENHA: " + usuario.getSenha());
+            txtSenhaUsuario.setText("SENHA: " + new FakeSenha().get(usuario.getSenha()));
 
 
             btnEditar.setOnClickListener(new View.OnClickListener() {
