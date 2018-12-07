@@ -18,21 +18,16 @@ import com.example.ti.loja.dao.ContatoDAO;
 public class CadastrarActivity extends AppCompatActivity {
 
 
-    private EditText edtNome;
     private RadioGroup rdTipo;
-    private RadioButton rdTipoEscolhido;
-    private RadioButton rdPessoal, rdComercial;
-    private EditText edtEmail;
-    private EditText edtTelefone;
+    private RadioButton rdTipoEscolhido, rdPessoal, rdComercial;
+    private EditText edtNome, edtEmail, edtTelefone;
     private Button btnSalvar;
     private TextView txtTitulo;
 
 
     private int id;
     private String nome;
-    private String email;
-    private String tipo;
-    private String telefone;
+    private String email, tipo, telefone;
     private boolean atualizar;
     private Contato contato;
     ContatoDAO dao;
