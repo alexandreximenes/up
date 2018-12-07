@@ -53,6 +53,6 @@ public class FilmeAdapter extends RecyclerView.Adapter {
 
     @Override
     public int getItemCount() {
-        return listaFilmes.size();
+        return 0;
     }
 }
