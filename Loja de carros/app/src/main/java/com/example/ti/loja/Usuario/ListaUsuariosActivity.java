@@ -1,4 +1,4 @@
-package com.example.ti.loja;
+package com.example.ti.loja.Usuario;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,9 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.ti.loja.Usuario.CadastrarUsuario;
-import com.example.ti.loja.Usuario.Usuario;
-import com.example.ti.loja.Usuario.UsuarioAdapter;
+import com.example.ti.loja.R;
 import com.example.ti.loja.dao.UsuarioDAO;
 
 import java.util.List;
@@ -21,12 +19,13 @@ public class ListaUsuariosActivity extends AppCompatActivity {
     private Button btnCadastrarUsuario;
     private RecyclerView rclUsuarios;
     List<Usuario> usuarios = null;
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_usuarios);
 
-        Context context = ListaUsuariosActivity.this;
+        context = ListaUsuariosActivity.this;
 
         btnCadastrarUsuario = findViewById(R.id.btnCadastrarUsuario);
         rclUsuarios = findViewById(R.id.rclUsuarios);
@@ -48,8 +47,5 @@ public class ListaUsuariosActivity extends AppCompatActivity {
                 startActivity(new Intent(context, CadastrarUsuario.class));
             }
         });
-
-
-
     }
 }

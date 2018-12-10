@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ti.loja">
 
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -24,15 +30,42 @@
             android:name=".Usuario.CadastrarUsuario"
             android:label="@string/title_activity_cadastrar_usuario" />
         <activity
-            android:name=".Empresa.CadastroLojaActivity"
+            android:name=".Empresa.CadastrarEmpresa"
             android:label="@string/title_activity_cadastro_loja" />
-        <activity
-            android:name=".Empresa.DetalheLojaActivity"
-            android:label="@string/title_activity_detalhe_loja" />
-        <activity android:name=".ListaUsuariosActivity" />
+        <activity android:name=".Usuario.ListaUsuariosActivity" />
         <activity
             android:name=".Usuario.DetalhesUsuarioActivity"
-            android:label="@string/title_activity_detalhes_usuario"></activity>
+            android:label="@string/title_activity_detalhes_usuario" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.homefolder.example.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <!-- ressource file to create -->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".Empresa.ListaEmpresaActivity" />
+        <activity
+            android:name=".Empresa.DetalhesEmpresaActivity"
+            android:label="@string/title_activity_detalhes_empresa" />
+        <activity
+            android:name=".Produto.ProdutosShopActivity"
+            android:label="@string/title_activity_produto_activity" />
+        <activity
+            android:name=".Produto.CadastrarProduto"
+            android:label="@string/title_activity_cadastrar_produto" />
+        <activity android:name=".Produto.ListaProdutosActivity" />
+        <activity
+            android:name=".Produto.DetalhesProdutoActivity"
+            android:label="@string/title_activity_detalhes_produto" />
+        <activity
+            android:name=".Produto.DetalhesShopActivity"
+            android:label="@string/title_activity_detalhes_shop"></activity>
     </application>
 
 </manifest>

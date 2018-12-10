@@ -6,7 +6,8 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.example.ti.loja.Usuario.LoginActivity;
+import com.example.ti.loja.Produto.ListaProdutosActivity;
+import com.example.ti.loja.Produto.ProdutosShopActivity;
 
 public class TelaInicial extends Activity {
 
@@ -35,7 +36,8 @@ public class TelaInicial extends Activity {
         Runnable login = () -> {
             try {
                 Thread.sleep(segundos);
-                startActivity(new Intent(TelaInicial.this, LoginActivity.class));
+//                startActivity(new Intent(TelaInicial.this, ProdutosShopActivity.class));
+                startActivity(new Intent(TelaInicial.this, ListaProdutosActivity.class));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

@@ -1,0 +1,59 @@
+<LinearLayout
+        android:id="@+id/layout_titulo_shop"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="10dp">
+        <ImageView
+            android:id="@+id/imageShop"
+            android:src="@drawable/shopping_online_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp" />
+        <TextView
+            android:id="@+id/textoTituloShop"
+            android:text=""
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_margin="10dp"
+        android:id="@+id/layout_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/layout_titulo_shop"
+        android:layout_alignStart="@+id/layout_titulo_shop"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:hint="O que você procura?"/>
+        <ImageView
+
+            android:layout_weight="1"
+            android:src="@drawable/search"
+            android:layout_width="50dp"
+            android:layout_height="50dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:layout_below="@+id/layout_search"
+        android:layout_alignStart="@+id/layout_search">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rclEmpresa"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="10dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
+    </LinearLayout>

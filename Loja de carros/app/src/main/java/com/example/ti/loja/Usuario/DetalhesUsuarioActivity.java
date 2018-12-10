@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ti.loja.ListaUsuariosActivity;
 import com.example.ti.loja.Mensagem;
 import com.example.ti.loja.R;
 import com.example.ti.loja.Util.FakeSenha;
@@ -39,7 +38,7 @@ public class DetalhesUsuarioActivity extends Activity {
         txtNomeUsuario = findViewById(R.id.txtNomeUsuarioDetalhe);
         txtEmailUsuario = findViewById(R.id.txtEMailUsuarioDetalhe);
         txtSenhaUsuario = findViewById(R.id.txtSenhaUsuarioDetalhe);
-        fotoUsuario = findViewById(R.id.imageUsuarioDetalhe);
+        fotoUsuario = findViewById(R.id.imageUsuario);
         btnExcluir = findViewById(R.id.btnExcluirUsuarioDetalhe);
         btnEditar = findViewById(R.id.btnEditarUsuarioDetalhe);
 

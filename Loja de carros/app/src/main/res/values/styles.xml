@@ -8,4 +8,22 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="estiloBtnLimpar" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/btn_limpar</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#fcfcfc</item>
+    </style>
+
+    <style name="estiloBtnVoltar" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/btn_voltar</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="estiloBtnSalvar" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/btn_salvar</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
+
 </resources>

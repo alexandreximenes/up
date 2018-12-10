@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#68c4f0"
      tools:context="com.example.ti.loja.TelaInicial">
 
     <ImageView
+        android:background="@drawable/background"
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:src="@drawable/ic_launcher_background" />
+        android:layout_centerInParent="true" />
 </RelativeLayout>

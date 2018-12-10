@@ -4,9 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fffefa"
     tools:context="com.example.ti.loja.Usuario.LoginActivity">
 
     <LinearLayout
+        android:background="#fffefa"
         android:layout_marginTop="50dp"
         android:padding="50dp"
         android:layout_width="match_parent"
@@ -19,7 +21,7 @@
             android:layout_height="120dp"
             android:layout_marginBottom="20dp"
             android:layout_gravity="center"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/logo_shopping" />
 
         <TextView
             android:id="@+id/tvMsg"
@@ -30,17 +32,17 @@
             android:textColor="@android:color/holo_red_dark" />
 
         <TextView
-            android:id="@+id/tvLogin"
+            android:id="@+id/tvEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:text="E-mail" />
 
         <EditText
-            android:id="@+id/edLogin"
+            android:id="@+id/edEmailLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:height="50dp"
-            android:hint="Login"
+            android:hint="email"
             android:inputType="textPersonName" />
 
         <TextView
@@ -55,7 +57,8 @@
             android:layout_height="wrap_content"
             android:height="50dp"
             android:hint="senha"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:layout_marginBottom="30dp"/>
 
    <LinearLayout
        android:layout_gravity="center"
@@ -68,6 +71,7 @@
            android:id="@+id/btNovoUsuario"
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
+           style="@style/estiloBtnVoltar"
            android:text="Novo" />
 
        <Button
@@ -75,6 +79,7 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:text="Entrar"
+           style="@style/estiloBtnSalvar"
            tools:text="Entrar" />
 
    </LinearLayout>

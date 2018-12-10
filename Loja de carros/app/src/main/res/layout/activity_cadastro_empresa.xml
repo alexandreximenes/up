@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.ti.loja.Empresa.CadastrarEmpresa">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="230dp"
+            android:background="#ffd54f">
+
+            <ImageView
+                android:id="@+id/imageLoja"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="20dp"
+                android:elevation="6dp"
+                android:src="@drawable/shop_orange" />
+
+            <Button
+                android:id="@+id/btnTirarFotoEmpresa"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/fundo_camera_empresa"
+                android:padding="10dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:stateListAnimator="@null"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="30dp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <TextView
+                android:id="@+id/tvMsgLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp"
+                android:text=""
+                android:textColor="@android:color/holo_red_dark" />
+
+            <EditText
+                android:id="@+id/edNomeLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:hint="Nome"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvSiteLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Site" />
+
+            <EditText
+                android:id="@+id/edSiteLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:hint="Onde te encontrar na web ?"
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:id="@+id/tvTelefoneLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Telefone" />
+
+            <EditText
+                android:id="@+id/edTelefoneLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:hint="(99) 9999-9999"
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvEmailLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email" />
+
+            <EditText
+                android:id="@+id/edEmailLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:hint="informe o email que você mais usa ..."
+                android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/tvEnderecoLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Endereço" />
+
+            <EditText
+                android:id="@+id/edEnderecoLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="50dp"
+                android:hint="informe seu endereço"
+                android:inputType="textPersonName" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btSalvarLoja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/estiloBtnSalvar"
+                    android:text="Salvar" />
+
+                <Button
+                    android:id="@+id/btLimparLoja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/estiloBtnLimpar"
+                    android:focusable="true"
+                    android:text="Limpar" />
+
+                <Button
+                    android:id="@+id/btVoltarLoja"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/estiloBtnVoltar"
+                    android:text="Voltar" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

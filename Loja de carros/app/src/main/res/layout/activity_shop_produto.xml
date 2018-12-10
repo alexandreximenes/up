@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF"
+    tools:context="com.example.ti.loja.Produto.ProdutosShopActivity">
+
+   <RelativeLayout
+       android:id="@+id/relative_principal"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <LinearLayout
+           android:id="@+id/layout_titulo_shop"
+           android:orientation="horizontal"
+           android:layout_width="match_parent"
+           android:layout_height="100dp"
+           android:background="#a6dae8">
+           <ImageView
+               android:id="@+id/imageShop"
+               android:src="@drawable/logo_shopp"
+               android:layout_width="100dp"
+               android:layout_height="100dp" />
+           <TextView
+               android:textStyle="bold"
+               android:id="@+id/textoTituloShop"
+               android:textSize="25dp"
+               android:text="Tudo com com até 95% de desconto"
+               android:layout_gravity="center"
+               android:gravity="center"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent" />
+       </LinearLayout>
+
+       <LinearLayout
+           android:background="#a6dae8"
+           android:id="@+id/layout_search"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/layout_titulo_shop"
+           android:layout_alignStart="@+id/layout_titulo_shop"
+           android:orientation="horizontal">
+
+           <EditText
+               android:id="@+id/input_search"
+               android:layout_width="match_parent"
+               android:layout_height="50dp"
+               android:layout_weight="2"
+               android:textColorHint="#FFF"
+               android:textColor="#FFF"
+               android:hint="O que você procura?"/>
+
+           <ImageButton
+               android:id="@+id/imageButtonSearch"
+               android:background="#a6dae8"
+               android:layout_width="100dp"
+               android:layout_height="50dp"
+               android:layout_weight="2"
+               android:src="@android:drawable/ic_menu_search" />
+
+       </LinearLayout>
+
+       <LinearLayout
+           android:orientation="vertical"
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+
+           android:layout_below="@+id/layout_search"
+           android:layout_alignStart="@+id/layout_search">
+
+           <android.support.v7.widget.RecyclerView
+               android:id="@+id/rclShop"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginTop="5dp"
+               android:layout_weight="1"
+               android:paddingHorizontal="10dp"
+               tools:layout_editor_absoluteX="8dp"
+               tools:layout_editor_absoluteY="8dp" />
+       </LinearLayout>
+
+   </RelativeLayout>
+
+</android.support.v4.widget.NestedScrollView>

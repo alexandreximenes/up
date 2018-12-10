@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -12,8 +11,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.ti.loja.ListaUsuariosActivity;
-import com.example.ti.loja.MainActivity;
 import com.example.ti.loja.Mensagem;
 import com.example.ti.loja.R;
 import com.example.ti.loja.dao.UsuarioDAO;
@@ -35,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Context applicationContext = getApplicationContext();
 
-        edNome = findViewById(R.id.edLogin);
+        edNome = findViewById(R.id.edEmailLogin);
         edSenha = findViewById(R.id.edSenha);
         tvMsg = findViewById(R.id.tvMsg);
 
@@ -54,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
                 tvMsg.setText("");
                 UsuarioDAO dao = new UsuarioDAO(applicationContext);
                 Usuario usuario = dao.getNomeESenha(nome, senha);
-                if(usuario!=null) {
+                if(usuario !=null) {
                     List<Usuario> lista = dao.lista();
                     Mensagem.show(applicationContext, lista.toString(), Toast.LENGTH_LONG);
                     startActivity(new Intent(applicationContext, ListaUsuariosActivity.class));
