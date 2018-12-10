@@ -26,6 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String NOME_USUARIO = "nome";
     public static final String EMAIL_USUARIO = "email";
     public static final String SENHA_USUARIO = "senha";
+    public static final String ADMIN_USUARIO = "admin";
 
     // Empresa
     public static final String DB_EMPRESA = "empresas";
@@ -73,7 +74,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "CREATE TABLE IF NOT EXISTS " + TABLE_USUARIO
                         + " (" + ID_USUARIO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         FOTO_USUARIO + " VARCHAR, " + NOME_USUARIO + " VARCHAR, " +
-                        EMAIL_USUARIO + " VARCHAR, " + SENHA_USUARIO + " VARCHAR );"
+                        EMAIL_USUARIO + " VARCHAR, " + SENHA_USUARIO + " VARCHAR, " + ADMIN_USUARIO + " VARCHAR  );"
         );
 
         db.execSQL(

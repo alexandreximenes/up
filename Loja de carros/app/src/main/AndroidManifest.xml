@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ti.loja">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -65,7 +67,8 @@
             android:label="@string/title_activity_detalhes_produto" />
         <activity
             android:name=".Produto.DetalhesShopActivity"
-            android:label="@string/title_activity_detalhes_shop"></activity>
+            android:label="@string/title_activity_detalhes_shop" />
+        <activity android:name=".MenuAdminActivity"></activity>
     </application>
 
 </manifest>
