@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
@@ -70,13 +71,15 @@ public class CadastrarProduto extends Activity {
             public void onClick(View view) {
                 if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(CadastrarProduto.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+                } else {
+                    Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    caminhoFoto = getExternalFilesDir(null) + File.separator + System.currentTimeMillis() + ".jpg";
+                    Log.d("caminho foto produto", caminhoFoto);
+                    File file = new File(caminhoFoto);
+                    intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, getUriFromFile(file));
+                    startActivityForResult(intentCamera, CAMERA_CODE);
+
                 }
-                Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                caminhoFoto = getExternalFilesDir(null)+File.separator+ System.currentTimeMillis() +".jpg";
-                Log.d("caminho foto produto", caminhoFoto);
-                File file = new File(caminhoFoto);
-                intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, FileProvider.getUriForFile(getApplicationContext(), BuildConfig.APPLICATION_ID + ".provider", file));
-                startActivityForResult(intentCamera, CAMERA_CODE);
 
             }
         });
@@ -142,10 +145,20 @@ public class CadastrarProduto extends Activity {
         btVoltarProduto.setOnClickListener(view -> finish());
     }
 
+    private Uri getUriFromFile(File file) {
+//        if (BuildConfig.APPLICATION_ID >= 7) {
+//            return FileProvider.getUriForFile(getApplicationContext(), BuildConfig.APPLICATION_ID, file);
+//        } else {
+//            return Uri.fromFile(file);
+//        }
+        return FileProvider.getUriForFile(getApplicationContext(), BuildConfig.APPLICATION_ID, file);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Activity.RESULT_OK && requestCode == CAMERA_CODE){
+            imageFoto.setImageBitmap(null);
             Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
             fundo_imageFoto.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
             fundo_imageFoto.setScaleType(ImageView.ScaleType.FIT_XY);

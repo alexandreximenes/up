@@ -47,7 +47,7 @@ public class CadastrarUsuario extends Activity {
         edNome = findViewById(R.id.edNomeUsuario);
         edEmail = findViewById(R.id.edEmailUsuario);
         edSenha = findViewById(R.id.edSenhaUsuario);
-        imageFoto = findViewById(R.id.imageDetalheUsuario);
+        imageFoto = findViewById(R.id.imageUsuario);
         tvMsgUsuario = findViewById(R.id.tvMsgUsuario);
 
 
