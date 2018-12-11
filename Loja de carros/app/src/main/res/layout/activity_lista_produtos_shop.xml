@@ -7,7 +7,27 @@
     android:background="#FFF"
     tools:context="com.example.ti.loja.Produto.ProdutosShopActivity">
 
-   <RelativeLayout
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btnAcessarAdmin"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/fundo_account"
+            android:elevation="6dp"
+            android:src="@drawable/avatar_icon_110"
+            android:stateListAnimator="@null"
+            android:textAlignment="center"
+            android:textSize="30dp" />
+
+    <RelativeLayout
        android:id="@+id/relative_principal"
        android:layout_width="match_parent"
        android:layout_height="match_parent">
@@ -17,25 +37,25 @@
            android:orientation="horizontal"
            android:layout_width="match_parent"
            android:layout_height="100dp"
-           android:background="#a6dae8">
+           android:background="#29b6f6">
            <ImageView
                android:id="@+id/imageShop"
-               android:src="@drawable/logo_shopp"
+               android:src="@drawable/mercado"
                android:layout_width="100dp"
                android:layout_height="100dp" />
            <TextView
                android:textStyle="bold"
                android:id="@+id/textoTituloShop"
-               android:textSize="25dp"
-               android:text="Tudo com com até 95% de desconto"
+               android:textSize="15dp"
+               android:text="Tudo com com \naté 95% Off"
                android:layout_gravity="center"
-               android:gravity="center"
+               android:gravity="left|center"
                android:layout_width="match_parent"
                android:layout_height="match_parent" />
        </LinearLayout>
 
        <LinearLayout
-           android:background="#a6dae8"
+           android:background="#29b6f6"
            android:id="@+id/layout_search"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
@@ -54,7 +74,7 @@
 
            <ImageButton
                android:id="@+id/imageButtonSearch"
-               android:background="#a6dae8"
+               android:background="#29b6f6"
                android:layout_width="100dp"
                android:layout_height="50dp"
                android:layout_weight="2"
@@ -76,11 +96,14 @@
                android:layout_height="match_parent"
                android:layout_marginTop="5dp"
                android:layout_weight="1"
-               android:paddingHorizontal="10dp"
                tools:layout_editor_absoluteX="8dp"
                tools:layout_editor_absoluteY="8dp" />
        </LinearLayout>
 
    </RelativeLayout>
+
+</RelativeLayout>
+
+
 
 </android.support.v4.widget.NestedScrollView>

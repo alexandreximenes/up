@@ -17,16 +17,6 @@
             android:layout_height="230dp"
             android:background="#64b5f6">
 
-            <ImageView
-                android:id="@+id/imageUsuario"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginBottom="20dp"
-                android:elevation="6dp"
-                android:src="@drawable/avatar" />
-
             <Button
                 android:id="@+id/btnTirarFotoUsuario"
                 android:layout_width="56dp"
@@ -42,6 +32,15 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30dp" />
 
+            <ImageView
+                android:id="@+id/imageUsuario"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="20dp"
+                android:elevation="6dp"
+                android:src="@drawable/avatar" />
         </RelativeLayout>
 
 

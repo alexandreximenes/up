@@ -36,8 +36,8 @@ public class TelaInicial extends Activity {
         Runnable login = () -> {
             try {
                 Thread.sleep(segundos);
-//                startActivity(new Intent(TelaInicial.this, ProdutosShopActivity.class));
-                startActivity(new Intent(TelaInicial.this, ListaProdutosActivity.class));
+                startActivity(new Intent(TelaInicial.this, ProdutosShopActivity.class));
+//                startActivity(new Intent(TelaInicial.this, MenuAdminActivity.class));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

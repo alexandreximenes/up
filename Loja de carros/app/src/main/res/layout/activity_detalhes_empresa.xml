@@ -23,7 +23,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="20dp"
                 android:elevation="6dp"
-                android:src="@drawable/avatar" />
+                android:src="@drawable/shop_orange" />
 
             <Button
                 android:id="@+id/btnTirarFotoEmpresa"

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.ti.loja.Mensagem;
+import com.example.ti.loja.MenuAdminActivity;
 import com.example.ti.loja.R;
 import com.example.ti.loja.dao.UsuarioDAO;
 
@@ -53,8 +54,8 @@ public class LoginActivity extends AppCompatActivity {
                 Usuario usuario = dao.getNomeESenha(nome, senha);
                 if(usuario !=null) {
                     List<Usuario> lista = dao.lista();
-                    Mensagem.show(applicationContext, lista.toString(), Toast.LENGTH_LONG);
-                    startActivity(new Intent(applicationContext, ListaUsuariosActivity.class));
+//                    Mensagem.show(applicationContext, lista.toString(), Toast.LENGTH_LONG);
+                    startActivity(new Intent(applicationContext, MenuAdminActivity.class));
                 }else {
                     Mensagem.show(applicationContext, "Usuário não encontrado no banco de dados", Toast.LENGTH_LONG);
                     return;

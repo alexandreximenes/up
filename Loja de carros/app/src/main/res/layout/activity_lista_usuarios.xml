@@ -19,17 +19,49 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/txtTitulo"
+            <LinearLayout
+                android:id="@+id/cabecalho_lista_usuarios"
+                android:background="#64b5f6"
+                android:padding="10dp"
+                android:gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="15dp"
-                android:text="Listagem de usuários"
-                android:textAlignment="center"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:layout_height="120dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="20dp"
+                        android:elevation="6dp"
+                        android:src="@drawable/avatar" />
+
+                    <LinearLayout
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:text="Lista de usuários"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="10dp"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
             <Button
                 android:id="@+id/btnCadastrarUsuario"
@@ -41,8 +73,6 @@
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/fundo"
                 android:elevation="6dp"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
                 android:stateListAnimator="@null"
                 android:text="+"
                 android:textAlignment="center"
@@ -56,8 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_marginTop="40dp"
-                android:paddingHorizontal="10dp"
+                android:layout_below="@+id/cabecalho_lista_usuarios"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp" />
         </RelativeLayout>

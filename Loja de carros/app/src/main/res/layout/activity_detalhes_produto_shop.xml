@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Produto.DetalhesShopActivity">
+    tools:context="com.example.ti.loja.Produto.DetalhesShopActivity">
 
 
     <LinearLayout
@@ -14,7 +14,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="230dp"
-            android:background="#07d7b2">
+            android:background="#a6dae8">
 
             <ImageView
                 android:id="@+id/fundo_imageDetalheProdutoShop"
@@ -32,7 +32,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginBottom="20dp"
                 android:elevation="6dp"
-                android:src="@drawable/produto" />
+                android:src="@drawable/present" />
 
 
 
