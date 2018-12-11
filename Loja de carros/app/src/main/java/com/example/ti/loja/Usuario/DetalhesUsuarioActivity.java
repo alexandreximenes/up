@@ -3,6 +3,8 @@ package com.example.ti.loja.Usuario;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +23,7 @@ public class DetalhesUsuarioActivity extends Activity {
     private TextView txtNomeUsuario;
     private TextView txtEmailUsuario;
     private TextView txtSenhaUsuario;
-    private ImageView fotoUsuario;
+    private ImageView fotoUsuario, imageDetalheUsuario;
     private Button btnExcluir;
     private Button btnEditar;
     private Context applicationContext;
@@ -39,6 +41,7 @@ public class DetalhesUsuarioActivity extends Activity {
         txtEmailUsuario = findViewById(R.id.txtEMailUsuarioDetalhe);
         txtSenhaUsuario = findViewById(R.id.txtSenhaUsuarioDetalhe);
         fotoUsuario = findViewById(R.id.imageUsuario);
+        imageDetalheUsuario = findViewById(R.id.imageDetalheUsuario);
         btnExcluir = findViewById(R.id.btnExcluirUsuarioDetalhe);
         btnEditar = findViewById(R.id.btnEditarUsuarioDetalhe);
 
@@ -56,7 +59,7 @@ public class DetalhesUsuarioActivity extends Activity {
             usuario = dao.get(id);
 
             txtID.setText("ID: #" + usuario.getId());
-//            fotoUsuario...
+          if(usuario.getFoto() != null) imageDetalheUsuario.setImageBitmap(setImage(usuario.getFoto()));
             txtNomeUsuario.setText("NOME: " + usuario.getNome());
             txtEmailUsuario.setText("EMAIL: " + usuario.getEmail());
             txtSenhaUsuario.setText("SENHA: " + new FakeSenha().get(usuario.getSenha()));
@@ -100,8 +103,16 @@ public class DetalhesUsuarioActivity extends Activity {
                 }
             });
 
-
         }
 
+    }
+    private Bitmap setImage(String foto) {
+        //fotoUsuario, imageDetalheUsuario;
+        Bitmap bitmap;
+        fotoUsuario.setImageBitmap(null);
+        bitmap = BitmapFactory.decodeFile(foto);
+        imageDetalheUsuario.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        imageDetalheUsuario.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
     }
 }

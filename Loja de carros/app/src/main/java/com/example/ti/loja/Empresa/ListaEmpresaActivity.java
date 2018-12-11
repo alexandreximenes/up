@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.ti.loja.MenuAdminActivity;
 import com.example.ti.loja.R;
 import com.example.ti.loja.Usuario.CadastrarUsuario;
 import com.example.ti.loja.Usuario.UsuarioAdapter;
@@ -19,7 +20,7 @@ import java.util.List;
 
 public class ListaEmpresaActivity extends AppCompatActivity {
 
-    private Button btnCadastrarEmpresa;
+    private Button btnCadastrarEmpresa, btnVoltarEmpresa;
     private RecyclerView rclEmpresa;
     List<Empresa> empresas = null;
     private Context context;
@@ -31,6 +32,7 @@ public class ListaEmpresaActivity extends AppCompatActivity {
         context = ListaEmpresaActivity.this;
 
         btnCadastrarEmpresa = findViewById(R.id.btnCadastrarEmpresa);
+        btnVoltarEmpresa = findViewById(R.id.btnVoltarEmpresa);
         rclEmpresa = findViewById(R.id.rclEmpresa);
 
         EmpresaDAO dao = new EmpresaDAO(context);
@@ -50,5 +52,13 @@ public class ListaEmpresaActivity extends AppCompatActivity {
                 startActivity(new Intent(context, CadastrarEmpresa.class));
             }
         });
+
+        btnVoltarEmpresa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, MenuAdminActivity.class));
+            }
+        });
+
     }
 }

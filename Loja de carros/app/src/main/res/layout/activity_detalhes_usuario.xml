@@ -27,20 +27,20 @@
                 android:elevation="6dp"
                 android:src="@drawable/avatar" />
 
-            <Button
-                android:id="@+id/btnTirarFotoUsuario"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/fundo_camera_usuario"
-                android:padding="10dp"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
-                android:stateListAnimator="@null"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="30dp" />
+            <!--<Button-->
+                <!--android:id="@+id/btnTirarFotoUsuario"-->
+                <!--android:layout_width="56dp"-->
+                <!--android:layout_height="56dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:background="@drawable/fundo_camera_usuario"-->
+                <!--android:padding="10dp"-->
+                <!--android:paddingHorizontal="20dp"-->
+                <!--android:paddingVertical="10dp"-->
+                <!--android:stateListAnimator="@null"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textColor="#FFFFFF"-->
+                <!--android:textSize="30dp" />-->
 
         </RelativeLayout>
 

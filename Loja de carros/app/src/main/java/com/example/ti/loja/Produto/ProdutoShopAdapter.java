@@ -2,11 +2,14 @@ package com.example.ti.loja.Produto;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.ti.loja.R;
 
@@ -37,6 +40,9 @@ public class ProdutoShopAdapter extends RecyclerView.Adapter{
         final Produto produto = listaProduto.get(position);
         ProdutoShopHolder dHolder = (ProdutoShopHolder)holder;
         dHolder.txtNomeCelulaProdutoShop.setText(produto.getTitulo());
+        if(produto.getFoto() != null)
+            dHolder.imageShop_lista_shop.setImageBitmap(setImage(dHolder.imageShop_lista_shop, produto.getFoto()));
+
 
         dHolder.txtNomeCelulaProdutoShop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +60,13 @@ public class ProdutoShopAdapter extends RecyclerView.Adapter{
     @Override
     public int getItemCount() {
         return listaProduto.size();
+    }
+
+    private Bitmap setImage(ImageView image, String foto) {
+        Bitmap bitmap;
+        bitmap = BitmapFactory.decodeFile(foto);
+        image.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        image.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
     }
 }

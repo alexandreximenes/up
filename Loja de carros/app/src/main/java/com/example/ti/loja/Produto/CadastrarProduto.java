@@ -9,7 +9,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
@@ -31,7 +30,8 @@ import java.io.File;
 public class CadastrarProduto extends Activity {
 
     public static final int CAMERA_CODE = 1;
-    Button btLimparProduto, btSalvarProduto, btVoltarProduto, btTirarFotoProduto;
+    private String caminhoFoto;
+    Button btLimparProduto, btSalvarProduto, btVoltarProduto, btTirarFoto;
     Integer id, quantidade;
     Double preco;
     String foto, titulo, descricao, marca, tamanho;
@@ -42,7 +42,7 @@ public class CadastrarProduto extends Activity {
     private ProdutoDAO dao;
     private Produto produto;
     Context applicationContext;
-    private String caminhoFoto;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,11 +62,11 @@ public class CadastrarProduto extends Activity {
         tvMsgProduto = findViewById(R.id.tvMsgProduto);
 
         btLimparProduto = findViewById(R.id.btLimparProduto);
-        btTirarFotoProduto = findViewById(R.id.btnTirarFotoProduto);
+        btTirarFoto = findViewById(R.id.btnTirarFotoProduto);
         btSalvarProduto = findViewById(R.id.btSalvarProduto);
         btVoltarProduto = findViewById(R.id.btVoltarProduto);
 
-        btTirarFotoProduto.setOnClickListener(new View.OnClickListener() {
+        btTirarFoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
@@ -101,7 +101,9 @@ public class CadastrarProduto extends Activity {
             tamanho = bundle.getString("tamanho");
             marca = bundle.getString("marca");
 
-            //imagem imageFoto
+            if (foto != null)
+                fundo_imageFoto.setImageBitmap(setImage(foto));
+
             edTituloProduto.setText(titulo);
             edPrecoProduto.setText(preco.toString());
             edDescricaoProduto.setText(descricao);
@@ -116,8 +118,6 @@ public class CadastrarProduto extends Activity {
             @Override
             public void onClick(View view) {
 
-
-                //foto = imageFoto
                 titulo = edTituloProduto.getText().toString();
                 descricao = edDescricaoProduto.getText().toString();
                 quantidade = edQuantidadeProduto.getText().toString().isEmpty() ? 0 : Integer.parseInt(edQuantidadeProduto.getText().toString());
@@ -162,11 +162,6 @@ public class CadastrarProduto extends Activity {
             Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
             fundo_imageFoto.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
             fundo_imageFoto.setScaleType(ImageView.ScaleType.FIT_XY);
-//
-//            Bundle bundle = data.getExtras();
-//            Bitmap bitmap = (Bitmap) bundle.get("data");
-//            imageFoto.setImageBitmap(bitmap);
-
         }
     }
 
@@ -195,6 +190,7 @@ public class CadastrarProduto extends Activity {
     private void setProduto() {
 
         produto.setId(id);
+        produto.setFoto(caminhoFoto);
         produto.setTitulo(titulo);
         produto.setDescricao(descricao);
         produto.setPreco(preco);
@@ -229,5 +225,15 @@ public class CadastrarProduto extends Activity {
         } catch (Exception e) {
             Log.d("Erro ao atualizar produto", e.getMessage());
         }
+    }
+
+    private Bitmap setImage(String foto) {
+        //imageFoto, fundo_imageFoto;
+        Bitmap bitmap;
+        imageFoto.setImageBitmap(null);
+        bitmap = BitmapFactory.decodeFile(foto);
+        fundo_imageFoto.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        fundo_imageFoto.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
     }
 }

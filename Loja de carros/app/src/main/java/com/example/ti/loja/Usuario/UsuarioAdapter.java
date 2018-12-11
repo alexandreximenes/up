@@ -2,11 +2,14 @@ package com.example.ti.loja.Usuario;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.ti.loja.R;
 
@@ -37,6 +40,8 @@ public class UsuarioAdapter extends RecyclerView.Adapter{
         final Usuario usuario = listaUsuarios.get(position);
         UsuarioHolder dHolder = (UsuarioHolder)holder;
         dHolder.txtNomeCelulaUsuario.setText(usuario.getNome());
+        if(usuario.getFoto() != null)
+            dHolder.image_lista_usuarios.setImageBitmap(setImage(dHolder.image_lista_usuarios, usuario.getFoto()));
 
         dHolder.txtNomeCelulaUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,5 +59,13 @@ public class UsuarioAdapter extends RecyclerView.Adapter{
     @Override
     public int getItemCount() {
         return listaUsuarios.size();
+    }
+
+    private Bitmap setImage(ImageView image, String foto) {
+        Bitmap bitmap;
+        bitmap = BitmapFactory.decodeFile(foto);
+        image.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        image.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
     }
 }

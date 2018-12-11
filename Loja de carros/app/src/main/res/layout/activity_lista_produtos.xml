@@ -64,7 +64,7 @@
                 android:layout_height="56dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginRight="16dp"
+                android:layout_marginRight="10dp"
                 android:layout_marginBottom="16dp"
                 android:background="@drawable/fundo"
                 android:elevation="6dp"
@@ -73,6 +73,21 @@
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="30dp" />
+
+            <Button
+                android:id="@+id/btnVoltarProduto"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="70dp"
+                android:background="@drawable/fundo_voltar"
+                android:elevation="6dp"
+                android:stateListAnimator="@null"
+                android:text="voltar"
+                android:textSize="10dp"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"/>
 
 
             <android.support.v7.widget.RecyclerView

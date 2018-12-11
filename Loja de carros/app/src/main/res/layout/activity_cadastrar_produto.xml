@@ -31,14 +31,14 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30dp" />
 
+
             <ImageView
                 android:id="@+id/fundo_imageProduto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:elevation="6dp"
-                android:src="@drawable/produto" />
+                android:elevation="6dp"/>
 
             <ImageView
                 android:id="@+id/imageProduto"

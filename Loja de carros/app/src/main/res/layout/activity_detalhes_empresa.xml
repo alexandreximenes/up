@@ -16,6 +16,14 @@
             android:background="#ffd54f">
 
             <ImageView
+                android:id="@+id/fundo_imageDetalheEmpresa"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:elevation="6dp"/>
+
+            <ImageView
                 android:id="@+id/imageimageDetalheEmpresa"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
@@ -25,20 +33,20 @@
                 android:elevation="6dp"
                 android:src="@drawable/shop_orange" />
 
-            <Button
-                android:id="@+id/btnTirarFotoEmpresa"
-                android:layout_width="56dp"
-                android:layout_height="56dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
-                android:background="@drawable/fundo_camera_empresa"
-                android:padding="10dp"
-                android:paddingHorizontal="20dp"
-                android:paddingVertical="10dp"
-                android:stateListAnimator="@null"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="30dp" />
+            <!--<Button-->
+                <!--android:id="@+id/btnTirarFotoEmpresa"-->
+                <!--android:layout_width="56dp"-->
+                <!--android:layout_height="56dp"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_alignParentBottom="true"-->
+                <!--android:background="@drawable/fundo_camera_empresa"-->
+                <!--android:padding="10dp"-->
+                <!--android:paddingHorizontal="20dp"-->
+                <!--android:paddingVertical="10dp"-->
+                <!--android:stateListAnimator="@null"-->
+                <!--android:textAlignment="center"-->
+                <!--android:textColor="#FFFFFF"-->
+                <!--android:textSize="30dp" />-->
 
         </RelativeLayout>
 

@@ -2,13 +2,14 @@ package com.example.ti.loja.Usuario;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.ti.loja.MenuAdminActivity;
 import com.example.ti.loja.R;
 import com.example.ti.loja.dao.UsuarioDAO;
 
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class ListaUsuariosActivity extends AppCompatActivity {
 
-    private Button btnCadastrarUsuario;
+    private Button btnCadastrarUsuario, btnVoltarUsuario;
     private RecyclerView rclUsuarios;
     List<Usuario> usuarios = null;
     private Context context;
@@ -28,6 +29,7 @@ public class ListaUsuariosActivity extends AppCompatActivity {
         context = ListaUsuariosActivity.this;
 
         btnCadastrarUsuario = findViewById(R.id.btnCadastrarUsuario);
+        btnVoltarUsuario = findViewById(R.id.btnVoltarUsuario);
         rclUsuarios = findViewById(R.id.rclUsuarios);
 
         UsuarioDAO dao = new UsuarioDAO(context);
@@ -45,6 +47,13 @@ public class ListaUsuariosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context, CadastrarUsuario.class));
+            }
+        });
+
+        btnVoltarUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, MenuAdminActivity.class));
             }
         });
     }

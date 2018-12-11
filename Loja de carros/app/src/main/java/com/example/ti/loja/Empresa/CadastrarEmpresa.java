@@ -5,11 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.FileProvider;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +20,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ti.loja.BuildConfig;
 import com.example.ti.loja.Mensagem;
+import com.example.ti.loja.Produto.CadastrarProduto;
 import com.example.ti.loja.R;
 import com.example.ti.loja.dao.EmpresaDAO;
 
@@ -30,12 +34,14 @@ public class CadastrarEmpresa extends Activity {
     Integer id;
     String foto, nome, site, telefone, email, endereco;
     EditText edNome, edSite, edTelefone, edEmail, edEndereco;
-    ImageView imageFoto;
+    ImageView imageFoto, fundo_imageEmpresa;
     TextView tvMsgEmpresa;
     private boolean atualizar;
     private EmpresaDAO dao;
     private Empresa empresa;
     Context applicationContext;
+    private String caminhoFoto;
+    public static final int CAMERA_CODE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +56,7 @@ public class CadastrarEmpresa extends Activity {
         edEmail = findViewById(R.id.edEmailLoja);
         edEndereco = findViewById(R.id.edEnderecoLoja);
         imageFoto = findViewById(R.id.imageLoja);
+        fundo_imageEmpresa = findViewById(R.id.fundo_imageEmpresa);
         tvMsgEmpresa = findViewById(R.id.tvMsgLoja);
 
 
@@ -63,14 +70,16 @@ public class CadastrarEmpresa extends Activity {
             public void onClick(View view) {
                 if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
                     ActivityCompat.requestPermissions(CadastrarEmpresa.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+                } else {
+                    Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    caminhoFoto = getExternalFilesDir(null) + File.separator + System.currentTimeMillis() + ".jpg";
+                    Log.d("caminho foto produto", caminhoFoto);
+                    File file = new File(caminhoFoto);
+                    intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, getUriFromFile(file));
+                    startActivityForResult(intentCamera, CAMERA_CODE);
+
                 }
-                Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                String caminhoFoto = getExternalFilesDir(null)+"/loja"+ System.currentTimeMillis() +".jpg";
-                Log.d("caminho foto empresa", caminhoFoto);
-                File imagePath = new File(getApplicationContext().getFilesDir(), "images");
-                File newFile = new File(imagePath, caminhoFoto);
-                intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(newFile));
-                startActivityForResult(intentCamera, 1);
+
             }
         });
 
@@ -90,7 +99,10 @@ public class CadastrarEmpresa extends Activity {
             telefone = bundle.getString("telefone");
             endereco = bundle.getString("endereco");
 
-            //imagem imageFoto
+            //imageFoto, fundo_imageEmpresa;
+            if (foto != null)
+                fundo_imageEmpresa.setImageBitmap(setImage(foto));
+
             edNome.setText(nome);
             edEmail.setText(email);
             edSite.setText(site);
@@ -131,14 +143,23 @@ public class CadastrarEmpresa extends Activity {
         btVoltarParaLogin.setOnClickListener(view -> finish());
     }
 
+    private Uri getUriFromFile(File file) {
+//        if (BuildConfig.APPLICATION_ID >= 7) {
+//            return FileProvider.getUriForFile(getApplicationContext(), BuildConfig.APPLICATION_ID, file);
+//        } else {
+//            return Uri.fromFile(file);
+//        }
+        return FileProvider.getUriForFile(getApplicationContext(), BuildConfig.APPLICATION_ID, file);
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1 && resultCode == RESULT_OK){
-            Bundle bundle = data.getExtras();
-            Bitmap bitmap = (Bitmap) bundle.get("data");
-            imageFoto.setImageBitmap(bitmap);
-
+        if(resultCode == Activity.RESULT_OK && requestCode == CAMERA_CODE){
+            imageFoto.setImageBitmap(null);
+            Bitmap bitmap = BitmapFactory.decodeFile(caminhoFoto);
+            fundo_imageEmpresa.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+            fundo_imageEmpresa.setScaleType(ImageView.ScaleType.FIT_XY);
         }
     }
 
@@ -198,5 +219,15 @@ public class CadastrarEmpresa extends Activity {
         } catch (Exception e) {
             Log.d("Erro ao atualizar empresa", e.getMessage());
         }
+    }
+
+    private Bitmap setImage(String foto) {
+        // imageFoto, fundo_imageEmpresa;
+        Bitmap bitmap;
+        imageFoto.setImageBitmap(null);
+        bitmap = BitmapFactory.decodeFile(foto);
+        fundo_imageEmpresa.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        fundo_imageEmpresa.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
     }
 }

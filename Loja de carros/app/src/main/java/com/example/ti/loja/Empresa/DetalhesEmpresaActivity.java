@@ -3,6 +3,8 @@ package com.example.ti.loja.Empresa;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -17,7 +19,7 @@ import com.example.ti.loja.dao.EmpresaDAO;
 public class DetalhesEmpresaActivity extends Activity {
 
     private TextView txtID, txtNomeEmpresa, txtEmailEmpresa, txtSiteEmpresa, txtTelefoneEmpresa, txtEnderecoEmpresa;
-    private ImageView fotoEmpresa;
+    private ImageView fotoEmpresa, fundo_imageDetalheEmpresa;
     private Button btnExcluir, btnEditar;
     private Context applicationContext;
     private Empresa empresa;
@@ -36,6 +38,7 @@ public class DetalhesEmpresaActivity extends Activity {
         txtTelefoneEmpresa = findViewById(R.id.txtTelefoneEmpresaDetalhe);
         txtEnderecoEmpresa = findViewById(R.id.txtEnderecoEmpresaDetalhe);
         fotoEmpresa = findViewById(R.id.imageimageDetalheEmpresa);
+        fundo_imageDetalheEmpresa = findViewById(R.id.fundo_imageDetalheEmpresa);
         btnExcluir = findViewById(R.id.btnExcluirEmpresaDetalhe);
         btnEditar = findViewById(R.id.btnEditarEmpresaDetalhe);
 
@@ -53,7 +56,7 @@ public class DetalhesEmpresaActivity extends Activity {
             empresa = dao.get(id);
 
             txtID.setText("ID: #" + empresa.getId());
-//            fotoUsuario...
+           if(empresa.getFoto() != null) fundo_imageDetalheEmpresa.setImageBitmap(setImage(empresa.getFoto()));
             txtNomeEmpresa.setText("NOME: " + empresa.getNome());
             txtEmailEmpresa.setText("EMAIL: " + empresa.getEmail());
             txtSiteEmpresa.setText("SITE: " + empresa.getSite());
@@ -105,4 +108,15 @@ public class DetalhesEmpresaActivity extends Activity {
         }
 
     }
+
+    private Bitmap setImage(String foto) {
+        //imageFoto, fundo_imageFoto;
+        Bitmap bitmap;
+        fotoEmpresa.setImageBitmap(null);
+        bitmap = BitmapFactory.decodeFile(foto);
+        fundo_imageDetalheEmpresa.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        fundo_imageDetalheEmpresa.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
+    }
+
 }

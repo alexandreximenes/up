@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.ti.loja.MenuAdminActivity;
 import com.example.ti.loja.R;
 import com.example.ti.loja.dao.ProdutoDAO;
 
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class ListaProdutosActivity extends AppCompatActivity {
 
-    private Button btnCadastrarProduto;
+    private Button btnCadastrarProduto, btnVoltarProduto;
     private RecyclerView rclProduto;
     List<Produto> produtos = null;
     private Context context;
@@ -28,6 +29,7 @@ public class ListaProdutosActivity extends AppCompatActivity {
         context = ListaProdutosActivity.this;
 
         btnCadastrarProduto = findViewById(R.id.btnCadastrarProduto);
+        btnVoltarProduto = findViewById(R.id.btnVoltarProduto);
         rclProduto = findViewById(R.id.rclProduto);
 
         ProdutoDAO dao = new ProdutoDAO(context);
@@ -45,6 +47,13 @@ public class ListaProdutosActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context, CadastrarProduto.class));
+            }
+        });
+
+        btnVoltarProduto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, MenuAdminActivity.class));
             }
         });
     }
