@@ -167,7 +167,7 @@
                 <Button
                     android:id="@+id/btnVoltarProdutoShopDetalhe"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     style="@style/estiloBtnSalvar"
                     android:text="VOLTAR" />

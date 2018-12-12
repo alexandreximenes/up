@@ -9,11 +9,12 @@ import android.widget.Button;
 
 import com.example.ti.loja.Empresa.ListaEmpresaActivity;
 import com.example.ti.loja.Produto.ListaProdutosActivity;
+import com.example.ti.loja.Produto.ProdutosShopActivity;
 import com.example.ti.loja.Usuario.ListaUsuariosActivity;
 
 public class MenuAdminActivity extends AppCompatActivity {
 
-    Button btAdmin_usuarios, btAdmin_produtos, btAdmin_empresas;
+    Button btAdmin_usuarios, btAdmin_produtos, btAdmin_empresas, btAdmin_irParaLoja;
     Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,9 +24,16 @@ public class MenuAdminActivity extends AppCompatActivity {
         btAdmin_usuarios = findViewById(R.id.btAdmin_usuarios);
         btAdmin_produtos = findViewById(R.id.btAdmin_produtos);
         btAdmin_empresas = findViewById(R.id.btAdmin_empresas);
+        btAdmin_irParaLoja = findViewById(R.id.btAdmin_irParaLoja);
 
         context = getApplicationContext();
 
+        btAdmin_irParaLoja.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context, ProdutosShopActivity.class));
+            }
+        });
         btAdmin_usuarios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -23,9 +23,10 @@ public class DetalhesUsuarioActivity extends Activity {
     private TextView txtNomeUsuario;
     private TextView txtEmailUsuario;
     private TextView txtSenhaUsuario;
-    private ImageView fotoUsuario, imageDetalheUsuario;
+    private ImageView fotoUsuario, fundo_imageDetalheUsuario;
     private Button btnExcluir;
     private Button btnEditar;
+    private Button btnVoltar;
     private Context applicationContext;
     private Usuario usuario;
 
@@ -40,10 +41,11 @@ public class DetalhesUsuarioActivity extends Activity {
         txtNomeUsuario = findViewById(R.id.txtNomeUsuarioDetalhe);
         txtEmailUsuario = findViewById(R.id.txtEMailUsuarioDetalhe);
         txtSenhaUsuario = findViewById(R.id.txtSenhaUsuarioDetalhe);
-        fotoUsuario = findViewById(R.id.imageUsuario);
-        imageDetalheUsuario = findViewById(R.id.imageDetalheUsuario);
+        fotoUsuario = findViewById(R.id.imageDetalheUsuario);
+        fundo_imageDetalheUsuario = findViewById(R.id.fundo_imageDetalheUsuario);
         btnExcluir = findViewById(R.id.btnExcluirUsuarioDetalhe);
         btnEditar = findViewById(R.id.btnEditarUsuarioDetalhe);
+        btnVoltar = findViewById(R.id.btnVoltarUsuarioDetalhe);
 
 
         Intent detalhesIntent = getIntent();
@@ -59,7 +61,11 @@ public class DetalhesUsuarioActivity extends Activity {
             usuario = dao.get(id);
 
             txtID.setText("ID: #" + usuario.getId());
-          if(usuario.getFoto() != null) imageDetalheUsuario.setImageBitmap(setImage(usuario.getFoto()));
+
+            //fotoUsuario, fundo_imageDetalheUsuario;
+            if (usuario.getFoto() != null)
+                fundo_imageDetalheUsuario.setImageBitmap(setImage(usuario.getFoto()));
+
             txtNomeUsuario.setText("NOME: " + usuario.getNome());
             txtEmailUsuario.setText("EMAIL: " + usuario.getEmail());
             txtSenhaUsuario.setText("SENHA: " + new FakeSenha().get(usuario.getSenha()));
@@ -103,16 +109,26 @@ public class DetalhesUsuarioActivity extends Activity {
                 }
             });
 
+            btnVoltar.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    finish();
+                }
+            });
+
         }
 
     }
+
     private Bitmap setImage(String foto) {
-        //fotoUsuario, imageDetalheUsuario;
+        ////fotoUsuario, fundo_imageDetalheUsuario;
         Bitmap bitmap;
         fotoUsuario.setImageBitmap(null);
         bitmap = BitmapFactory.decodeFile(foto);
-        imageDetalheUsuario.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
-        imageDetalheUsuario.setScaleType(ImageView.ScaleType.FIT_XY);
+        fundo_imageDetalheUsuario.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        fundo_imageDetalheUsuario.setScaleType(ImageView.ScaleType.FIT_XY);
         return bitmap;
     }
 }

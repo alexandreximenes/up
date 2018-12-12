@@ -3,6 +3,8 @@ package com.example.ti.loja.Produto;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -55,8 +57,10 @@ public class DetalhesShopActivity extends Activity {
             produto = dao.get(id);
 
             txtID.setText("ID: #" + produto.getId());
-//            fotoUsuario...
-//            fundo_fotoProdutoShop;
+//            fotoProdutoShop, fundo_fotoProdutoShop;
+            if (produto.getFoto() != null)
+                fundo_fotoProdutoShop.setImageBitmap(setImage(produto.getFoto()));
+
             txtTituloProdutoShop.setText("NOME: " + produto.getTitulo());
             txtDescricaoProdutoShop.setText("DESCRIÇÃO: " + produto.getDescricao());
             txtPrecoProdutoShop.setText("PREÇO: " + produto.getPreco());
@@ -73,9 +77,16 @@ public class DetalhesShopActivity extends Activity {
                 }
             });
 
-
-
         }
 
+    }
+    private Bitmap setImage(String foto) {
+        // fotoProdutoShop, fundo_fotoProdutoShop
+        Bitmap bitmap;
+        fotoProdutoShop.setImageBitmap(null);
+        bitmap = BitmapFactory.decodeFile(foto);
+        fundo_fotoProdutoShop.setImageBitmap(Bitmap.createScaledBitmap(bitmap, 360, 230, true));
+        fundo_fotoProdutoShop.setScaleType(ImageView.ScaleType.FIT_XY);
+        return bitmap;
     }
 }

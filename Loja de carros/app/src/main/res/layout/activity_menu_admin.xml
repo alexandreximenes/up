@@ -172,4 +172,57 @@
 
         </LinearLayout>
 
+
+    <LinearLayout
+        android:background="#fd6d6d"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="20dp"
+                android:elevation="6dp"
+                android:src="@drawable/mercado" />
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Acessar a loja"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"/>
+
+                <Button
+                    android:text="Ir agora"
+                    android:textSize="20dp"
+                    android:id="@+id/btAdmin_irParaLoja"
+                    android:layout_gravity="right"
+                    style="@style/estiloBtnSalvar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
 </LinearLayout>

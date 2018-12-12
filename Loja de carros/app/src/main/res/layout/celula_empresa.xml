@@ -12,7 +12,7 @@
 
         <LinearLayout
             android:id="@+id/cabecalho_lista_empresas"
-            android:background="#ffd54f"
+            android:background="#ffe698"
             android:padding="10dp"
             android:gravity="center"
             android:layout_width="match_parent"

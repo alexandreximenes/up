@@ -71,6 +71,7 @@ public class CadastrarUsuario extends Activity {
                 } else {
                     Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     caminhoFoto = getExternalFilesDir(null) + File.separator + System.currentTimeMillis() + ".jpg";
+                    foto = caminhoFoto;
                     Log.d("caminho foto usuario", caminhoFoto);
                     File file = new File(caminhoFoto);
                     intentCamera.putExtra(MediaStore.EXTRA_OUTPUT, getUriFromFile(file));

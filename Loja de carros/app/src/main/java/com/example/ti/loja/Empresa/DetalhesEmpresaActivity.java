@@ -20,7 +20,7 @@ public class DetalhesEmpresaActivity extends Activity {
 
     private TextView txtID, txtNomeEmpresa, txtEmailEmpresa, txtSiteEmpresa, txtTelefoneEmpresa, txtEnderecoEmpresa;
     private ImageView fotoEmpresa, fundo_imageDetalheEmpresa;
-    private Button btnExcluir, btnEditar;
+    private Button btnExcluir, btnEditar, btnVoltar;
     private Context applicationContext;
     private Empresa empresa;
 
@@ -41,6 +41,7 @@ public class DetalhesEmpresaActivity extends Activity {
         fundo_imageDetalheEmpresa = findViewById(R.id.fundo_imageDetalheEmpresa);
         btnExcluir = findViewById(R.id.btnExcluirEmpresaDetalhe);
         btnEditar = findViewById(R.id.btnEditarEmpresaDetalhe);
+        btnVoltar = findViewById(R.id.btnVoltarEmpresaDetalhe);
 
 
         Intent detalhesIntent = getIntent();
@@ -56,8 +57,11 @@ public class DetalhesEmpresaActivity extends Activity {
             empresa = dao.get(id);
 
             txtID.setText("ID: #" + empresa.getId());
-           if(empresa.getFoto() != null) fundo_imageDetalheEmpresa.setImageBitmap(setImage(empresa.getFoto()));
-            txtNomeEmpresa.setText("NOME: " + empresa.getNome());
+
+           if(empresa.getFoto() != null)
+               fundo_imageDetalheEmpresa.setImageBitmap(setImage(empresa.getFoto()));
+
+           txtNomeEmpresa.setText("NOME: " + empresa.getNome());
             txtEmailEmpresa.setText("EMAIL: " + empresa.getEmail());
             txtSiteEmpresa.setText("SITE: " + empresa.getSite());
             txtEnderecoEmpresa.setText("ENDEREÇO: " + empresa.getEndereco());
@@ -103,10 +107,14 @@ public class DetalhesEmpresaActivity extends Activity {
                     }
                 }
             });
+            btnVoltar.setOnClickListener(new View.OnClickListener() {
 
-
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
         }
-
     }
 
     private Bitmap setImage(String foto) {

@@ -20,7 +20,7 @@ public class DetalhesProdutoActivity extends Activity {
 
     private TextView txtID, txtTituloProduto, txtDescricaoProduto, txtQuantidadeProduto, txtPrecoProduto, txtTamanhoProduto, txtMarcaProduto;
     private ImageView fotoProduto, fundo_imageDetalheProduto;
-    private Button btnExcluir, btnEditar;
+    private Button btnExcluir, btnEditar, btnVoltar;
     private Context applicationContext;
     private Produto produto;
 
@@ -42,6 +42,7 @@ public class DetalhesProdutoActivity extends Activity {
         fundo_imageDetalheProduto = findViewById(R.id.fundo_imageDetalheProduto);
         btnExcluir = findViewById(R.id.btnExcluirProdutoDetalhe);
         btnEditar = findViewById(R.id.btnEditarProdutoDetalhe);
+        btnVoltar = findViewById(R.id.btnVoltarProdutoDetalhe);
 
 
         Intent detalhesIntent = getIntent();
@@ -104,6 +105,14 @@ public class DetalhesProdutoActivity extends Activity {
                     } catch (Exception e) {
                         Mensagem.show(applicationContext, e.getMessage().toString(), Toast.LENGTH_LONG);
                     }
+                }
+            });
+
+            btnVoltar.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    finish();
                 }
             });
 

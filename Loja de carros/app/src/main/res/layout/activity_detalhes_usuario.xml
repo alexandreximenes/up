@@ -12,10 +12,19 @@
         android:layout_height="match_parent">
 
         <RelativeLayout
-            android:id="@+id/imageUsuarioDetalhe"
+            android:id="@+id/relative_usuarioDetalhe"
             android:layout_width="match_parent"
             android:layout_height="230dp"
             android:background="#64b5f6">
+
+
+            <ImageView
+                android:id="@+id/fundo_imageDetalheUsuario"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:elevation="6dp"/>
 
             <ImageView
                 android:id="@+id/imageDetalheUsuario"
@@ -131,7 +140,7 @@
                 <Button
                     android:id="@+id/btnEditarUsuarioDetalhe"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     style="@style/estiloBtnSalvar"
                     android:layout_weight="1"
                     android:text="EDITAR" />
@@ -139,10 +148,18 @@
                 <Button
                     android:id="@+id/btnExcluirUsuarioDetalhe"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     style="@style/estiloBtnLimpar"
                     android:layout_weight="1"
                     android:text="EXCLUIR" />
+
+                <Button
+                    android:id="@+id/btnVoltarUsuarioDetalhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    style="@style/estiloBtnVoltar"
+                    android:layout_weight="1"
+                    android:text="VOLTAR" />
 
             </LinearLayout>
 

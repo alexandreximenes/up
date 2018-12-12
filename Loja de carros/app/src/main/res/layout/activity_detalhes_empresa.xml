@@ -166,17 +166,25 @@
                     android:id="@+id/btnEditarEmpresaDetalhe"
                     android:layout_width="wrap_content"
                     style="@style/estiloBtnSalvar"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     android:text="EDITAR" />
 
                 <Button
                     android:id="@+id/btnExcluirEmpresaDetalhe"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     style="@style/estiloBtnLimpar"
                     android:text="EXCLUIR" />
+
+                <Button
+                    android:id="@+id/btnVoltarEmpresaDetalhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    style="@style/estiloBtnVoltar"
+                    android:layout_weight="1"
+                    android:text="VOLTAR" />
 
             </LinearLayout>
 

@@ -179,7 +179,7 @@
                 <Button
                     android:id="@+id/btnEditarProdutoDetalhe"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     android:layout_weight="1"
                     style="@style/estiloBtnSalvar"
                     android:text="EDITAR" />
@@ -187,10 +187,18 @@
                 <Button
                     android:id="@+id/btnExcluirProdutoDetalhe"
                     android:layout_width="wrap_content"
-                    android:layout_height="80dp"
+                    android:layout_height="50dp"
                     style="@style/estiloBtnLimpar"
                     android:layout_weight="1"
                     android:text="EXCLUIR" />
+
+                <Button
+                    android:id="@+id/btnVoltarProdutoDetalhe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    style="@style/estiloBtnVoltar"
+                    android:layout_weight="1"
+                    android:text="VOLTAR" />
 
             </LinearLayout>
 
