@@ -24,6 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ID_USUARIO = "id";
     public static final String FOTO_USUARIO = "foto";
     public static final String NOME_USUARIO = "nome";
+    public static final String TELEFONE_USUARIO = "telefone";
     public static final String EMAIL_USUARIO = "email";
     public static final String SENHA_USUARIO = "senha";
     public static final String ADMIN_USUARIO = "admin";

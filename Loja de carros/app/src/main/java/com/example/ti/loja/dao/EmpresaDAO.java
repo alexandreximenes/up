@@ -113,4 +113,11 @@ public class EmpresaDAO {
         }
         return empresa;
     }
+    public boolean ehCadastrado(String telefone){
+        Cursor cursor = gateway.getDataBase().rawQuery(SELECT + " WHERE " + helper.TELEFONE_EMPRESA + " =? ", new String[]{telefone});
+        boolean b = cursor.getCount() > 0 ? true : false;
+        cursor.close();
+        return b;
+
+    }
 }

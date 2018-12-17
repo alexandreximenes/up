@@ -70,7 +70,7 @@ public class CadastrarProduto extends Activity {
             @Override
             public void onClick(View view) {
                 if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-                    ActivityCompat.requestPermissions(CadastrarProduto.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+                    ActivityCompat.requestPermissions(CadastrarProduto.this, new String[]{Manifest.permission.CAMERA, Manifest.permission.RECEIVE_SMS, Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
                 } else {
                     Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     caminhoFoto = getExternalFilesDir(null) + File.separator + System.currentTimeMillis() + ".jpg";
